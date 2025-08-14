@@ -9,7 +9,7 @@ set -euo pipefail
 BUNDLE_DIR=${1:-tffsmount_offline}
 
 # Install Debian packages
-sudo apt-get install -y --no-download "$BUNDLE_DIR"/deb/*.deb
+sudo dpkg -i "$BUNDLE_DIR"/deb/*.deb && sudo apt-get -y --no-download -f install
 
 # Create and activate virtual environment
 python3 -m venv venv
